@@ -44,6 +44,45 @@ Stars
 
 ```
 
+## Commands used:
+```
+cd 02_assignments/clues
+ls
+
+# finding first clue
+ls food/cake
+cat food/cake/vanilla_cake.txt # I got lucky here and saw "Paper Rings"
+
+# second clue
+# There's a way to do with with du or sed, but frankly I'm not good enough
+# So.... for each directory in /shows/friends/, where x is the season number...
+# ls shows/friends/season_x | wc -l
+ls shows/friends/season_10 | wc -l # 18! hey!
+
+# third clue
+cat shows/friends/season_6/ep_21.txt #  see it's just a string
+# I manually verified this as well
+cat shows/friends/season_6/ep_21.txt | cut -d " " -f 5 # see "Meets"
+
+# fourth clue
+cat movies/space_wars/fifth_movie.txt
+cat movies/space_wars/fifth_movie.txt | cut -d " " -f 5 # and
+
+# fifth clue
+# check and see what these files look like
+cat albums/red/song_1.txt # see that the Duration is in x:yy format
+grep -rl "4:00" ./albums/red
+cat ./albums/red/song_5.txt # see that "Title:" exists. so manually count out second word in title to see "Lucky"
+
+# sixth clue
+ls ./movies/hanger_games # to see how the files are named
+cat ./movies/hanger_games/movie_4.txt # manually count, see Stars (& is not a word)
+
+# Fin.
+
+
+```
+
 |Criteria|Complete|Incomplete|
 |---|---|---|
 |Secret Password|The user properly used the proper bash commands to find the secret password.|The user did not properly used the proper bash commands to find the secret password.|
