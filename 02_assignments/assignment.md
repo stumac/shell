@@ -11,10 +11,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `assignment`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 # Assignment: The Secret Password
 
@@ -34,9 +34,50 @@ You are stuck in a virtual room and can only leave if you figure out the passwor
 
 **What is the secret password?**
 ```
-Your answer here...
+Paper Rings
+10
+Meets
+and
+Lucky
+Stars
 
+```
 
+## Commands used:
+```
+cd 02_assignments/clues
+ls
+
+# finding first clue
+ls food/cake
+cat food/cake/vanilla_cake.txt # I got lucky here and saw "Paper Rings"
+
+# second clue
+# There's a way to do with with du or sed, but frankly I'm not good enough
+# So.... for each directory in /shows/friends/, where x is the season number...
+# ls shows/friends/season_x | wc -l
+ls shows/friends/season_10 | wc -l # 18! hey!
+
+# third clue
+cat shows/friends/season_6/ep_21.txt #  see it's just a string
+# I manually verified this as well
+cat shows/friends/season_6/ep_21.txt | cut -d " " -f 5 # see "Meets"
+
+# fourth clue
+cat movies/space_wars/fifth_movie.txt
+cat movies/space_wars/fifth_movie.txt | cut -d " " -f 5 # see "and" as the fifth word. I'm including "Space Wars" as part of the title here. Because it is.
+
+# fifth clue
+# check and see what these files look like
+cat albums/red/song_1.txt # see that the Duration is in `x:yy` format
+grep -rl "4:00" ./albums/red
+cat ./albums/red/song_5.txt # see that "Title:" exists. I assume that's not part of the song title. So manually count out second word in title to see "Lucky"
+
+# sixth clue
+ls ./movies/hanger_games # to see how the files are named
+cat ./movies/hanger_games/movie_4.txt # manually count, see Stars (& is not a word)
+
+# Fin.
 
 
 ```
