@@ -41,7 +41,6 @@ and
 Lucky
 Stars
 
-
 ```
 
 ## Commands used:
@@ -66,13 +65,13 @@ cat shows/friends/season_6/ep_21.txt | cut -d " " -f 5 # see "Meets"
 
 # fourth clue
 cat movies/space_wars/fifth_movie.txt
-cat movies/space_wars/fifth_movie.txt | cut -d " " -f 5 # and
+cat movies/space_wars/fifth_movie.txt | cut -d " " -f 5 # see "and" as the fifth word. I'm including "Space Wars" as part of the title here. Because it is.
 
 # fifth clue
 # check and see what these files look like
-cat albums/red/song_1.txt # see that the Duration is in x:yy format
+cat albums/red/song_1.txt # see that the Duration is in `x:yy` format
 grep -rl "4:00" ./albums/red
-cat ./albums/red/song_5.txt # see that "Title:" exists. so manually count out second word in title to see "Lucky"
+cat ./albums/red/song_5.txt # see that "Title:" exists. I assume that's not part of the song title. So manually count out second word in title to see "Lucky"
 
 # sixth clue
 ls ./movies/hanger_games # to see how the files are named
